@@ -1,0 +1,13 @@
+<Expr> ::= <MathExpr> [<Comparison> <MathExpr>]
+<Comparison> ::= '=' | '>' | '<' | '>=' | '<=' | '<>'
+<MathExpr> ::= <Term> {<Operator1> <Term>}
+<Operator1> ::= '+' | '-' | 'or' | 'xor'
+<Term> ::= <Factor> {<Operator2> <Factor>}
+<Operator2> ::= '*' | '/' | 'div' | 'mod' | 'and'
+<Factor> ::= <UnaryOp> <Factor> | <Base> ['^' <Factor>]
+<UnaryOp> ::= '+' | '-' | 'not'| 'binnot'
+<Base> ::= <Variable> | <Number> | '(' <Expr> ')'
+<Variable> ::= <Letter> {<Letter> | <Digit>}
+<Letter> ::= 'A' | ... | 'Z' | 'a' | 'À' | ... | 'ß' | 'à' | ... | 'ÿ' | '_'
+<Digit> ::= '0' | ... | '9'
+<Number> ::= <Digit> {<Digit>} [<DecimalSeparator> <Digit> {<Digit>}][('E' | 'e') ['+' | '-'] <Digit> {<Digit>}]
